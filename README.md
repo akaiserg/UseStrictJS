@@ -16,3 +16,10 @@ The most common problem that can be solved by using  "use strict" are:
 
 
 Depending of  which error has been done, the error  will be shown  when the js file  is loaded or  when  the function with the error is called.
+
+
+### References
+
+ * [Reference 1](https://www.nczonline.net/blog/2012/03/13/its-time-to-start-using-javascript-strict-mode/)
+ * [Reference 2](http://dmitrysoshnikov.com/ecmascript/es5-chapter-2-strict-mode/)
+ * [Reference 3](https://msdn.microsoft.com/en-us/library/br230269(v=vs.94).aspx)
