@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title> Test</title>
+    <script type="text/javascript"  src="lib/head.min.js"></script>
+    <script>
+        head.load("lib/bootstrap_335/css/bootstrap.min.css", "lib/syntaxhighlighter_3083/styles/shCoreDefault.css");
+    </script>
+
+</head>
+<body>
+
+<br>
+<div class="container text-center">
+    <div class="jumbotron " id="content_id">
+
+        <div class="row">
+            <div class="col-md-4">
+                <p>Case 1</p>
+                <button class="btn btn-success" type="button" id="btnCase1SM_id"> with strict mode</button>
+                <button class="btn btn-danger" type="button" id="btnCase1NoSM_id"> without strict mode</button>
+            </div>
+            <div class="col-md-4">
+                <p>Case 2</p>
+                <button class="btn btn-success" type="button" id="btnCase2SM_id"> with strict mode</button>
+                <button class="btn btn-danger" type="button" id="btnCase2NoSM_id"> without strict mode</button>
+            </div>
+            <div class="col-md-4">
+                <p>Case 3</p>
+                <button class="btn btn-success" type="button" id="btnCase3SM_id"> with strict mode</button>
+                <button class="btn btn-danger" type="button" id="btnCase3NoSM_id"> without strict mode</button>
+            </div>
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-4">
+                <p>Case 4</p>
+                <button class="btn btn-success" type="button" id="btnCase4SM_id"> with strict mode</button>
+                <button class="btn btn-danger" type="button" id="btnCase4NoSM_id"> without strict mode</button>
+            </div>
+            <div class="col-md-4">
+                <p>Case 5</p>
+                <button class="btn btn-success" type="button" id="btnCase5SM_id"> with strict mode</button>
+                <button class="btn btn-danger" type="button" id="btnCase5NoSM_id"> without strict mode</button>
+            </div>
+            <div class="col-md-4">
+                <p>Case 6</p>
+                <button class="btn btn-success" type="button" id="btnCase6SM_id"> with strict mode</button>
+                <button class="btn btn-danger" type="button" id="btnCase6NoSM_id"> without strict mode</button>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron " id="code_id">
+        <H3 id="tittleCode_id"></H3>
+        <div  id="codeCase1WithSM_id"  class="hide ">
+           <pre class="brush: js;" >
+                 this.executeCodeWithStrict=function(){
+
+                    "use strict";
+                    // This causes a syntax error.
+                     testVar = 5;
+                     console.info(testvar);
+
+                 };
+            </pre>
+       </div>
+        <div  id="codeCase1WithOutSM_id"  class="hide ">
+           <pre class="brush: js;" >
+                this.executeCodeWithOutStrict=function(){
+
+                     // it's  global
+                     testVar = 5;
+                     console.info("Value of testVar is "+testVar);
+
+                 };
+            </pre>
+        </div>
+
+        <div  id="codeCase2WithSM_id"  class="hide ">
+           <pre class="brush: js;" >
+                    //TypeError: Main.ModuleCase2WithSM is not a function, this module can't even  be used
+                  this.executeCodeWithStrict=function(param1,param2,param1){
+                    //SyntaxError inside this function
+                     "use strict";
+                    console.info("the valueas are: ",param1,param2,param1);
+
+                    };
+            </pre>
+        </div>
+        <div  id="codeCase2WithOutSM_id"  class="hide ">
+           <pre class="brush: js;" >
+                this.executeCodeWithOutStrict=function(param1,param2,param1){
+
+                    // the value of param1 is overwritten
+                    console.info("the valueas are: ",param1,param2,param1);
+
+                };
+            </pre>
+        </div>
+
+        <div  id="codeCase3WithSM_id"  class="hide ">
+           <pre class="brush: js;" >
+                this.executeCodeWithStrict=function(){
+
+                    "use strict";
+                    /*implements interface package private protected public static yield eval*/
+                    var private=221;
+                    var interface="My interface";
+
+                };
+            </pre>
+        </div>
+        <div  id="codeCase3WithOutSM_id"  class="hide ">
+           <pre class="brush: js;" >
+            this.executeCodeWithOutStrict=function(){
+
+                //"use strict";
+                /*implements interface package private protected public static yield eval*/
+                var private=221;
+                var interface="My interface";
+                console.info(private,interface);
+
+            };
+            </pre>
+        </div>
+
+        <div  id="codeCase4WithSM_id"  class="hide ">
+           <pre class="brush: js;" >
+            this.executeCodeWithStrict=function(){
+
+                "use strict";
+                eval("var testvar = 10");
+                testvar = 15;
+                console.info(testvar);
+
+            };
+            </pre>
+        </div>
+        <div  id="codeCase4WithOutSM_id"  class="hide ">
+           <pre class="brush: js;" >
+               this.executeCodeWithOutStrict=function(){
+
+                eval("var testvar = 10");
+                console.info(testvar);
+
+            };
+            </pre>
+        </div>
+        <div  id="codeCase5WithSM_id"  class="hide ">
+           <pre class="brush: js;" >
+            this.executeCodeWithStrict=function(){
+
+                "use strict";
+                //window.color = "red";
+                function sayColor() {
+                    window.color = "red";
+                    console.info(this.color);
+                }
+                // Throws an error in strict mode, "red" otherwise
+                console.info(sayColor());
+
+            };
+            </pre>
+        </div>
+        <div  id="codeCase5WithOutSM_id"  class="hide ">
+           <pre class="brush: js;" >
+            this.executeCodeWithOutStrict=function(){
+
+            function sayColor() {
+                window.color = "red";
+                console.info(this.color);
+            }
+            console.info(sayColor());
+
+            };
+            </pre>
+        </div>
+        <div  id="codeCase6WithSM_id"  class="hide ">
+           <pre class="brush: js;" >
+               this.executeCodeWithStrict=function(){
+
+                "use strict";
+                var person = {};
+                Object.defineProperty(person, "name", {
+                    writable: false,
+                    value: "Andres"
+                });
+                // throws an error in strict mode
+                person.name = "John";
+                console.info(person.name);
+
+            };
+            </pre>
+        </div>
+        <div  id="codeCase6WithOutSM_id"  class="hide ">
+           <pre class="brush: js;" >
+              this.executeCodeWithOutStrict=function(){
+
+                var person = {};
+                Object.defineProperty(person, "name", {
+                    writable: false,
+                    value: "Andres"
+                });
+                // doesn't tthrow an error
+                person.name = "John";
+                console.info(person.name);
+
+            };
+            </pre>
+        </div>
+
+
+        <H4 class="pull-left">Note: Open the console to see the execution </H4>
+    </div>
+</div>
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+    head.load(["lib/jquery_300/jquery.min.js","lib/syntaxhighlighter_3083/scripts/shCore.js","lib/syntaxhighlighter_3083/scripts/shBrushJScript.js","modules/Main.js"],function(){
+        SyntaxHighlighter.all();
+
+        var case1= null;
+        $("#btnCase1SM_id").click(function(){
+            head.load("modules/ModuleCase1.js",function(){
+               if(case1==null){
+                     case1= new Main.ModuleCase1();
+               }
+               case1.setTitle("tittleCode_id");
+               case1.showCodeWithSM();
+               case1.executeCodeWithStrict();
+            });
+        });
+        $("#btnCase1NoSM_id").click(function(){
+            head.load("modules/ModuleCase1.js",function(){
+                if(case1==null){
+                    case1= new Main.ModuleCase1();
+                }
+                case1.setTitle("tittleCode_id");
+                case1.showCodeWithOutSM();
+                case1.executeCodeWithOutStrict();
+            });
+        });
+
+        var case2WithSM= null;
+
+        $("#btnCase2SM_id").click(function(){
+            head.load("modules/ModuleCase2WithSMHelper.js",function(){
+                if(case2WithSM==null){
+                    case2WithSM= new Main.ModuleCase2WithSMHelper();
+                }
+                case2WithSM.setTitle("tittleCode_id");
+                case2WithSM.showCodeWithSM();
+            });
+            head.load("modules/ModuleCase2WithSM.js",function(){
+                var case2WithSMError= new ModuleCase2WithSM();
+                case2WithSMError.executeCodeWithStrict("param1","param2","param3");
+            });
+        });
+        var case2WithOutSM= null;
+        $("#btnCase2NoSM_id").click(function(){
+            head.load("modules/ModuleCase2WithOutSM.js",function(){
+                if(case2WithOutSM==null){
+                    case2WithOutSM= new Main.ModuleCase2WithOutSM();
+                }
+                case2WithOutSM.setTitle("tittleCode_id");
+                case2WithOutSM.showCodeWithOutSM();
+                case2WithOutSM.executeCodeWithOutStrict("param1","param2","param3");
+            });
+        });
+
+
+        var case3WithSM= null;
+
+        $("#btnCase3SM_id").click(function(){
+            head.load("modules/ModuleCase3WithSMHelper.js",function(){
+                if(case3WithSM==null){
+                    case3WithSM= new Main.ModuleCase3WithSMHelper();
+                }
+                case3WithSM.setTitle("tittleCode_id");
+                case3WithSM.showCodeWithSM();
+            });
+            head.load("modules/ModuleCase3WithSM.js",function(){
+                var case3WithSMError= new ModuleCase3WithSM();
+                case3WithSMError.executeCodeWithStrict();
+            });
+        });
+        var case3WithOutSM= null;
+        $("#btnCase3NoSM_id").click(function(){
+            head.load("modules/ModuleCase3WithOutSM.js",function(){
+                if(case3WithOutSM==null){
+                    case3WithOutSM= new Main.ModuleCase3WithOutSM();
+                }
+                case3WithOutSM.setTitle("tittleCode_id");
+                case3WithOutSM.showCodeWithOutSM();
+                case3WithOutSM.executeCodeWithOutStrict();
+            });
+        });
+
+
+        var case4= null;
+        $("#btnCase4SM_id").click(function(){
+            head.load("modules/ModuleCase4.js",function(){
+                if(case4==null){
+                    case4= new Main.ModuleCase4();
+                }
+                case4.setTitle("tittleCode_id");
+                case4.showCodeWithSM();
+                case4.executeCodeWithStrict();
+            });
+        });
+        $("#btnCase4NoSM_id").click(function(){
+            head.load("modules/ModuleCase4.js",function(){
+                if(case4==null){
+                    case4= new Main.ModuleCase4();
+                }
+                case4.setTitle("tittleCode_id");
+                case4.showCodeWithOutSM();
+                case4.executeCodeWithOutStrict();
+            });
+        });
+
+        var case5= null;
+        $("#btnCase5SM_id").click(function(){
+            head.load("modules/ModuleCase5.js",function(){
+                if(case5==null){
+                    case5= new Main.ModuleCase5();
+                }
+                case5.setTitle("tittleCode_id");
+                case5.showCodeWithSM();
+                case5.executeCodeWithStrict();
+            });
+        });
+        $("#btnCase5NoSM_id").click(function(){
+            head.load("modules/ModuleCase5.js",function(){
+                if(case5==null){
+                    case5= new Main.ModuleCase5();
+                }
+                case5.setTitle("tittleCode_id");
+                case5.showCodeWithOutSM();
+                case5.executeCodeWithOutStrict();
+            });
+        });
+
+
+        var case6= null;
+        $("#btnCase6SM_id").click(function(){
+            head.load("modules/ModuleCase6.js",function(){
+                if(case6==null){
+                    case6= new Main.ModuleCase6();
+                }
+                case6.setTitle("tittleCode_id");
+                case6.showCodeWithSM();
+                case6.executeCodeWithStrict();
+            });
+        });
+        $("#btnCase6NoSM_id").click(function(){
+            head.load("modules/ModuleCase6.js",function(){
+                if(case6==null){
+                    case6= new Main.ModuleCase6();
+                }
+                case6.setTitle("tittleCode_id");
+                case6.showCodeWithOutSM();
+                case6.executeCodeWithOutStrict();
+            });
+        });
+
+    });
+
+</script>
